@@ -123,6 +123,10 @@ class DispatchService:
         return {"ships": ship_list}
 
     def get_ship_history(self, ship_id: int):
+        ship = self.ship_repo.get_by_id(ship_id)
+        if not ship:
+            raise ValueError(f"Ship with id={ship_id} doesn't exist")
+
         ship_coords = self.ship_coordinates_repo.get_all_by_ship_id(ship_id)
         ship_coords = sorted(ship_coords, key=lambda s: s.id, reverse=True)
 

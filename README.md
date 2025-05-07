@@ -14,3 +14,6 @@ Service, that imitates a ship dispatch service, where ships can send their coord
 6. If you see "{"ships":[]}" as response, it means everything is working!
 
 ## Implementation details
+The application is written with FastAPI framework and contains three-layer architecture (router-service-repository). Service layer is one where main calculations are done. 
+There are two db models in the architecture: Ship (storing just ship ids) and ShipCoordinates (storing coordinates(x, y), time). When ship send its coordinates its current speed and move vector are calculated immediately and written to db (in ShipCoordinates model).
+Zone is caclulated every time we execute request (because ships can send location with different time frequency, so it may affect all ships' zones every time moment).

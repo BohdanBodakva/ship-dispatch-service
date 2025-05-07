@@ -64,7 +64,7 @@ class DispatchService:
             else:
                 return "yellow"
 
-        zone_priority = {"red": 1, "yellow": 2, "green": 3}
+        zone_priority = {"red": 3, "yellow": 2, "green": 1}
         zone = "green"
         for sec in range(seconds):
             new_x1, new_y1 = self.get_trajectory_function(x1, y1, speed1, angle1, sec)

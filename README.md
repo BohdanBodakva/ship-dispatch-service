@@ -1,0 +1,16 @@
+# Ship Dispatch Service
+
+Service, that imitates a ship dispatch service, where ships can send their coordinates at the moment of time, and service is available to rate possible ships collisions to determine zone where ships are located: "green" (collisions are impossible), "yellow" (ships run in 1 distance unit from each other), "red" (collision is expected).
+
+
+## How to run
+1. Execute command in terminal to clone the repository:
+"git clone -b master https://github.com/BohdanBodakva/ship-dispatch-service.git"
+2. Navigate to firectory you've just cloned
+3. Start Docker client (Docker Desktop)
+4. Execute command to run docker-compose:
+"docker-compose up --build"
+5. Open browser/Postman and try to execute GET request to "http://localhost:8000/v1/api/ships" address
+6. If you see "{"ships":[]}" as response, it means everything is working!
+
+## Implementation details

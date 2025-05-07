@@ -13,6 +13,16 @@ Service, that imitates a ship dispatch service, where ships can send their coord
 5. Open browser/Postman and try to execute GET request to "http://localhost:8000/v1/api/ships" address
 6. If you see "{"ships":[]}" as response, it means everything is working!
 
+## How to use
+1. POST /v1/api/ships/:id/position (body: {“time: 1744383218, “x”: 2, “y”: 3})
+Send ship cooordinates at the moment of time
+2. GET /v1/api/ships
+Get all ships' last coordinates and zones
+3. GET /v1/api/ships/:id
+Get special ship history (coordinates, time and speed)
+4. POST /v1/api/flush
+Clears all ships/coordinates data from database 
+
 ## Implementation details
 The application is written with FastAPI framework and contains three-layer architecture (router-service-repository). Service layer is one where main calculations are done. 
 There are two db models in the architecture: Ship (storing just ship ids) and ShipCoordinates (storing coordinates(x, y), time). When ship send its coordinates its current speed and move vector are calculated immediately and written to db (in ShipCoordinates model).
